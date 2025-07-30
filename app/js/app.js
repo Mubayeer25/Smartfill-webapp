@@ -26,8 +26,8 @@ var app = angular.module('app', [
 
 app.run(['$rootScope', '$state', function($rootScope, $state) {
     $rootScope.$on('$stateChangeSuccess', function(event, toState) {
-        var baseTitle = 'Slant';
-        var pageTitle = baseTitle + ' | AngularJS Admin Template'; 
+        var baseTitle = 'Smartfill';
+        var pageTitle = baseTitle + ' | Smartfill'; 
 
         if (toState.data && toState.data.pageTitle) {
             pageTitle = toState.data.pageTitle + ' | ' + baseTitle;
