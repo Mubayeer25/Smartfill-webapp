@@ -1,8 +1,4 @@
-Of course. Here is a `README.md` file that you can give to your colleague. It includes every step needed to set up the project on a clean system.
-
------
-
-# Slant Web App Setup
+Smartfill Web App Setup
 
 This document provides instructions on how to set up and run the Slant AngularJS project for local development.
 
