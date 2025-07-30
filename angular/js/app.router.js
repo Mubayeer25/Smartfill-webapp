@@ -20,6 +20,9 @@ angular.module('app')
                     .state('app.dashboard', {
                         url: '/dashboard',
                         templateUrl: 'partials/app_dashboard.html',
+                        data: {
+                            pageTitle: 'Dashboard'
+                        },
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function($ocLazyLoad) {
@@ -58,6 +61,36 @@ angular.module('app')
                                 }
                             ]
                         }
+                    })
+                    .state('app.managestores', {
+                        abstract: true,
+                        url: '/manage-stores',
+                        template: '<div ui-view></div>',
+                        data: {
+                            pageTitle: 'Manage Stores'
+                        },
+                        resolve: {
+                            deps: ['$ocLazyLoad',
+                                function($ocLazyLoad) {
+                                    return $ocLazyLoad.load('js/controllers/manage-stores.js');
+                                }
+                            ]
+                        }
+                    })
+                    .state('app.managestores.list', {
+                        url: '/list',
+                        templateUrl: 'partials/view-stores.html',
+                        controller: 'ManageStoresController'
+                    })
+                    .state('app.managestores.add', {
+                        url: '/add',
+                        templateUrl: 'partials/add-store.html',
+                        controller: 'ManageStoresController'
+                    })
+                    .state('app.managestores.edit', {
+                        url: '/edit/:storeId',
+                        templateUrl: 'partials/edit-store.html',
+                        controller: 'ManageStoresController'
                     })
                     .state('app.searchapp', {
                         url: '/searchapp',
@@ -700,26 +733,6 @@ angular.module('app')
                         }
                     })
 
-                .state('app.layout', {
-                        url: '/layout',
-                        template: '<div ui-view class=""></div>'
-                    })
-                    .state('app.layout.default', {
-                        url: '/default',
-                        templateUrl: 'partials/layout-default.html'
-                    })
-                    .state('app.layout.collapsed', {
-                        url: '/collapsed',
-                        templateUrl: 'partials/layout-collapsed.html'
-                    })
-                    .state('app.layout.chat', {
-                        url: '/chat',
-                        templateUrl: 'partials/layout-chat.html'
-                    })
-                    .state('app.layout.boxed', {
-                        url: '/boxed',
-                        templateUrl: 'partials/layout-boxed.html'
-                    })
                     .state('app.ui.vectormaps', {
                         url: '/vectormaps',
                         templateUrl: 'partials/ui-vectormaps.html',

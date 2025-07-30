@@ -9,7 +9,7 @@ angular.module('app').controller('AppCtrl', ['$scope',
         }
 
         $scope.app = {
-            name: 'Slant Admin - Angular | General',
+            name: 'Smartfill',
             version: '4.0.1',
             type: 'general', // general,hospital,university,music,crm,blog,socialmedia,freelancing,ecommerce
             color: {
@@ -18,7 +18,7 @@ angular.module('app').controller('AppCtrl', ['$scope',
                 info: '#26C6DA',
                 success: '#46be8a',
                 warning: '#fdb45d',
-                danger: '#F44336',
+                danger: '#e53935',
                 secondary: '#a9a9a9',
                 text: '#767676'
             },
@@ -28,7 +28,7 @@ angular.module('app').controller('AppCtrl', ['$scope',
                 chatFolded: true,
                 layoutBoxed: false,
                 searchFocus: false,
-                pagetitle: 'Slant \\ AngularJS',
+                pagetitle: 'Smartfill',
             }
         }
         $scope.menuChatToggle = function(type, value) {

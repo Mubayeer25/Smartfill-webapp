@@ -1,0 +1,66 @@
+<div class="page-header">
+    <h1 class="page-title">Edit Store</h1>
+</div>
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">Store Details</h3>
+    </div>
+    <div class="panel-body">
+        <!-- Store Form -->
+        <div ng-if="loading" class="text-center"><i class="fa fa-spinner fa-spin"></i> Loading store details...</div>
+        <form name="storeForm" ng-submit="saveStore()" novalidate ng-if="!loading">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="storeName">Store Name</label>
+                        <input type="text" class="form-control" id="storeName" ng-model="store.store_name" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="dispenser">Dispenser</label>
+                        <input type="text" class="form-control" id="dispenser" ng-model="store.dispenser">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="location">Store Location</label>
+                <input type="text" class="form-control" id="location" ng-model="store.location">
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="contactName">Contact Person Name</label>
+                        <input type="text" class="form-control" id="contactName" ng-model="store.contact_name">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="contactNumber">Contact Person Number</label>
+                        <input type="text" class="form-control" id="contactNumber" ng-model="store.contact_number">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="currency">Currency</label>
+                        <input type="text" class="form-control" id="currency" ng-model="store.currency" placeholder="e.g., USD">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="image">New Image (Optional)</label>
+                        <input type="file" id="image" onchange="angular.element(this).scope().setFile(this)">
+                        <p class="help-block" ng-if="store.image_url">Current image: <a href="{{store.image_url}}" target="_blank">View</a></p>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" ng-disabled="storeForm.$invalid || saving">
+                <i class="fa fa-spinner fa-spin" ng-if="saving"></i> Update Store
+            </button>
+            <button type="button" class="btn btn-default" ui-sref="app.managestores.list">Cancel</button>
+        </form>
+    </div>
+</div>

@@ -56703,15 +56703,14 @@ angular.module('perfect_scrollbar', []).directive('perfectScrollbar',
 'use strict';
 
 // --- SUPABASE INITIALIZATION ---
-const SUPABASE_URL = 'https://czwefexjxhapgqeogofr.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN6d2VmZXhqeGhhcGdxZW9nb2ZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM3ODQ1OTcsImV4cCI6MjA2OTM2MDU5N30.0tJP_8nlmiOMRbF1bgY-SJz0GT0z5THTHQwAvHQmBgY'; // <-- Make sure your real key is here
+var SUPABASE_URL = 'https://czwefexjxhapgqeogofr.supabase.co';
+var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN6d2VmZXhqeGhhcGdxZW9nb2ZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM3ODQ1OTcsImV4cCI6MjA2OTM2MDU5N30.0tJP_8nlmiOMRbF1bgY-SJz0GT0z5THTHQwAvHQmBgY';
 
-// Create the Supabase client and make it globally available
 window.supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 // --- END OF SUPABASE INITIALIZATION ---
 
 
-// Declare app level module which depends on views, and components
+// Declare app level module
 var app = angular.module('app', [
     'ngAnimate',
     'ngSanitize',
@@ -56728,18 +56727,27 @@ var app = angular.module('app', [
 ]);
 
 app.run(['$rootScope', '$state', function($rootScope, $state) {
-    $rootScope.$on('$stateChangeStart', function(event, toState) {
-        
-        // This function runs before any page change
-        supabase.auth.getSession().then(function(response) {
-            const session = response.data.session;
-            const isAuthPage = toState.name.includes('access.');
+    $rootScope.$on('$stateChangeSuccess', function(event, toState) {
+        var baseTitle = 'Slant';
+        var pageTitle = baseTitle + ' | AngularJS Admin Template'; 
 
-            // If the user is NOT logged in AND is trying to go to a page
-            // that is NOT a login/register/etc. page...
+        if (toState.data && toState.data.pageTitle) {
+            pageTitle = toState.data.pageTitle + ' | ' + baseTitle;
+            if ($rootScope.app && $rootScope.app.settings) {
+                $rootScope.app.settings.pagetitle = toState.data.pageTitle;
+            }
+        }
+        document.title = pageTitle;
+    });
+
+    $rootScope.$on('$stateChangeStart', function(event, toState) {
+        supabase.auth.getSession().then(function(response) {
+            var session = response.data.session;
+            var isAuthPage = toState.name.includes('access.');
+
             if (!session && !isAuthPage) {
-                event.preventDefault(); // Stop them from going to the page
-                $state.go('access.login'); // Redirect them to the login page
+                event.preventDefault(); 
+                $state.go('access.login');
             }
         });
     });

@@ -821,7 +821,7 @@ a:focus {
 }
 
 .bg-accent {
-    background: #FF6E40;
+    background: teal;
     padding: 3px 8px;
     color: #ffffff;
 }
@@ -861,7 +861,7 @@ a:focus {
     min-height: 60px;
     position: fixed;
     width: 100%;
-    background-color: #37474F;
+    background-color: teal;
     top: 0px;
     left: 0px;
     z-index: 1999;
@@ -875,7 +875,7 @@ a:focus {
 
 .page-topbar .logo-area {
     width: 200px;
-    background-color: #FF6E40;
+    background-color: yellowgreen;
     display: flex; /* Changed from block to flex for better centering */
     align-items: center; /* Vertical centering */
     justify-content: center; /* Horizontal centering */
@@ -998,7 +998,7 @@ a:focus {
 }
 
 .page-topbar .quick-area .slantit .info-menu {
-    background-color: #FF6E40;
+    background-color: yellowgreen;
     padding: 0 0px 0 0px;
 }
 
@@ -1016,7 +1016,7 @@ a:focus {
     content: " ";
     width: 40px;
     height: 60px;
-    background-color: #37474F;
+    background-color: teal;
     position: absolute;
     right: -18px;
     -moz-transform: skewX(30deg);
@@ -1034,7 +1034,7 @@ a:focus {
     content: " ";
     width: 40px;
     height: 60px;
-    background-color: #FF6E40;
+    background-color: yellowgreen;
     position: absolute;
     left: -18px;
     -moz-transform: skewX(30deg);
@@ -1052,7 +1052,7 @@ a:focus {
 
 .page-topbar.chat_shift .quick-area .info-menu li.chat-slant,
 .page-topbar.chat_shift .chat-slant:before {
-    background-color: #FF6E40;
+    background-color: yellowgreen;
     padding: 0px;
 }
 
@@ -1084,7 +1084,7 @@ a:focus {
     position: absolute;
     width: 60px;
     height: 3px;
-    background-color: #FF6E40;
+    background-color: yellowgreen;
     content: " ";
     bottom: 0px;
     left: 58px;
@@ -1105,7 +1105,7 @@ a:focus {
     position: absolute;
     width: 60px;
     height: 3px;
-    background-color: #FF6E40;
+    background-color: yellowgreen;
     content: " ";
     top: 15px;
     left: 55px;
@@ -1122,7 +1122,7 @@ a:focus {
 .mobile-pagetitle h1,
 .page-topbar .quick-area .pagetitle h1 {
     font-weight: 600;
-    color: #455A64;
+    color: teal;
     padding: 25px 45px 0 55px;
     font-size: 32px;
     line-height: 35px;
@@ -1537,7 +1537,7 @@ a:focus {
 }
 
 .page-topbar li.searchform .form-control:focus {
-    border-bottom: 2px solid #FF6E40;
+    border-bottom: 2px solid yellowgreen;
 }
 
 .page-topbar li.searchform input[type="submit"] {
@@ -2898,8 +2898,8 @@ slider span.pointer.active:after {
 }
 
 .btn.btn-danger {
-    background: yellow;
-    color: #ffffff;
+    background: orange;
+    color: white;
 }
 
 .btn.btn-info {
@@ -6878,11 +6878,11 @@ code {
 /*collapsed menu and chat open states*/
 
 .page-topbar.sidebar_shift .logo-area {
-    background-color: #FF6E40;
+    background-color: yellowgreen;
 }
 
 .page-topbar.chat_shift .logo-area {
-    background-color: #FF6E40;
+    background-color: yellowgreen;
 }
 
 .chatapi-windows.hideit {
@@ -7129,7 +7129,7 @@ border-left: 3px solid transparent;
 .page-sidebar.chat_shift #main-menu-wrapper,
 .page-sidebar.collapseit #main-menu-wrapper {
     padding-top: 0px;
-    background-color: #37474F;
+    background-color: teal;
     /*top: -79px;*/
 }
 
