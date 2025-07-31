@@ -1,17 +1,23 @@
-<div class="page-header">
-    <h1 class="page-title" align="center">View Stores</h1>
-</div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <section class="box">
+            <header class="panel_header">
+                <h2 class="title pull-left">Add a new store</h2>
+                <div class="actions panel_actions pull-right">
+                    <i class="box_toggle material-icons">expand_more</i>
+                    <i class="box_close material-icons">close</i>
+                </div>
+            </header>
 
 <div class="panel">
     <div class="panel-heading">
-        <h3 class="panel-title" align="center">Existing Stores</h3>
-        <div class="panel-options">
-            <a ui-sref="app.managestores.add" class="btn btn-primary btn-sm">
-                <i class="fa fa-plus"></i> Add Another New Store
-            </a>
-        </div>
+        <h3 class="panel-title" align="center"> </h3>
     </div>
     <div class="panel-body">
+        <!-- Image backdrop -->
+        <div class="image-overlay-backdrop"
+             ng-show="(stores | filter:{enlarged: true}).length > 0"
+             ng-click="stores.forEach(function(s){ s.enlarged = false; })">
+        </div>
         <!-- Stores Table -->
         <table class="table table-striped">
             <thead>
@@ -33,7 +39,13 @@
                     <td colspan="7" class="text-center">No stores found.</td>
                 </tr>
                 <tr ng-repeat="s in stores">
-                    <td><img ng-src="{{s.image_url}}" alt="{{s.store_name}}" class="img-thumbnail" style="width: 50px; height: 50px;" ng-if="s.image_url"></td>
+                    <td>
+                        <img ng-if="s.image_url"
+                             ng-src="{{s.image_url}}" alt="{{s.store_name}}"
+                             class="img-thumbnail store-image"
+                             ng-class="{'enlarged': s.enlarged}"
+                             ng-click="$event.stopPropagation(); s.enlarged = !s.enlarged">
+                    </td>
                     <td>{{s.store_name}}</td>
                     <td>{{s.location}}</td>
                     <td>{{s.contact_name}}</td>
@@ -47,4 +59,11 @@
             </tbody>
         </table>
     </div>
+    <div class="panel-options" align="right">
+            <a ui-sref="app.managestores.add" class="btn btn-primary btn-sm">
+                <i class="fa fa-plus"></i> Add Another Store
+            </a>
+        </div>
 </div>
+</section>
+    </div>
